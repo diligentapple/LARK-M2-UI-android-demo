@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/black"
+    tools:ignore="hardcodedText">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/black"
+        android:layout_marginTop="44dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="LARK M2"
+        app:titleTextAppearance="@style/ToolbarTitleText"
+        app:titleCentered="true"
+        app:menu="@menu/toolbar_menu"
+        app:navigationIcon="@drawable/btn_4"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingBottom="32dp"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical">
+
+            <!-- Device Image -->
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="187dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="LARK M2 Device Image"
+                android:src="@drawable/pic_28" />
+
+            <!-- Mic Status Bar -->
+            <LinearLayout
+                android:id="@+id/mic_status_bar"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingTop="18dp"
+                android:paddingBottom="17.5dp">
+
+                <!-- Mic 1 -->
+                <TextView
+                    android:id="@+id/mic1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/pingfang"
+                    android:text="Mic 1"
+                    android:textColor="#EEEEEE"
+                    android:textSize="12sp" />
+
+                <View
+                    android:id="@+id/mic_icon1"
+                    android:layout_width="26dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12.5dp"
+                    android:background="@drawable/battery_shape2" />
+
+                <TextView
+                    android:id="@+id/percent1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/pingfang"
+                    android:text="6%"
+                    android:textColor="#EEEEEE"
+                    android:textSize="12sp"/>
+
+                <!-- Mic 2 -->
+                <TextView
+                    android:id="@+id/mic2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:fontFamily="@font/pingfang"
+                    android:text="Mic 2"
+                    android:textColor="#EEEEEE"
+                    android:textSize="12sp"/>
+
+                <View
+                    android:id="@+id/mic_icon2"
+                    android:layout_width="26dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12.5dp"
+                    android:background="@drawable/battery_shape" />
+
+                <TextView
+                    android:id="@+id/percent2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/pingfang"
+                    android:text="100%"
+                    android:textColor="#EEEEEE"
+                    android:textSize="12sp"/>
+            </LinearLayout>
+
+            <!-- Audio Level Bar -->
+            <LinearLayout
+                android:id="@+id/audio_level"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@drawable/card_background"
+                android:layout_marginTop="8dp">
+
+                <View
+                    android:layout_width="7dp"
+                    android:layout_height="32dp"
+                    android:background="@drawable/audio_bar"
+                    android:backgroundTint="#00E70C"/>
+
+                <View
+                    android:layout_width="7dp"
+                    android:layout_height="32dp"
+                    android:layout_marginStart="3.5dp"
+                    android:background="@drawable/audio_bar"
+                    android:backgroundTint="#00E70C"/>
+
+            </LinearLayout>
+
+            <!-- 手机外放 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:orientation="horizontal"
+                android:background="@drawable/card_background"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:text="手机外放"
+                    android:textSize="14sp"
+                    android:textColor="#EEEEEE"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:fontFamily="@font/pingfang">
+                </TextView>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:thumbTint="#FFFFFF"
+                    app:thumbTint="#FFFFFF"
+                    app:trackTint="#FF9D0A">
+                </com.google.android.material.materialswitch.MaterialSwitch>
+
+            </LinearLayout>
+
+            <!-- 降噪 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/noise_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/card_background"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/pingfang"
+                    android:text="降噪"
+                    android:textColor="#EEEEEE"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="16dp"
+                    android:thumbTint="#FFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:thumbTint="#FFFFFF"
+                    app:trackTint="#FF9D0A">
+                </com.google.android.material.materialswitch.MaterialSwitch>
+
+                <!-- 强降噪 -->
+                <ImageButton
+                    android:id="@+id/btn_strong"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginBottom="44dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="强降噪"
+                    android:src="@drawable/nc_12"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/pingfang"
+                    android:text="强降噪"
+                    android:textColor="#EEEEEE"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <!-- 弱降噪 -->
+                <ImageButton
+                    android:id="@+id/btn_weak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="41dp"
+                    android:layout_marginBottom="44dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="弱降噪"
+                    android:src="@drawable/nc_14"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="44dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/pingfang"
+                    android:text="弱降噪"
+                    android:textColor="#EEEEEE"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- 音量调节 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/noise_reduction"
+                android:layout_width="match_parent"
+                android:layout_height="114dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/card_background"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="音量调节"
+                    android:textSize="14sp"
+                    android:textColor="#EEEEEE"
+                    android:fontFamily="@font/pingfang"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </TextView>
+
+                <!-- 音量按键 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="58dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <Button
+                        android:id="@+id/btn_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/volume_btn"
+                        android:fontFamily="@font/pingfang"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="0dp"
+                        android:text="1"
+                        android:textColor="#999999"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:backgroundTint="@null"
+                        app:backgroundTint="@null" />
+                    <Button
+                        android:id="@+id/btn_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/volume_btn"
+                        android:fontFamily="@font/pingfang"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="0dp"
+                        android:text="2"
+                        android:textColor="#999999"
+                        android:textSize="20sp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@null"
+                        app:backgroundTint="@null"/>
+                    <Button
+                        android:id="@+id/btn_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/volume_btn"
+                        android:fontFamily="@font/pingfang"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="0dp"
+                        android:text="3"
+                        android:textColor="#999999"
+                        android:textSize="20sp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@null"
+                        app:backgroundTint="@null"/>
+                    <Button
+                        android:id="@+id/btn_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/volume_btn"
+                        android:fontFamily="@font/pingfang"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="0dp"
+                        android:text="4"
+                        android:textColor="#999999"
+                        android:textSize="20sp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@null"
+                        app:backgroundTint="@null"/>
+                    <Button
+                        android:id="@+id/btn_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/volume_btn"
+                        android:fontFamily="@font/pingfang"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="0dp"
+                        android:text="5"
+                        android:textColor="#999999"
+                        android:textSize="20sp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@null"
+                        app:backgroundTint="@null"/>
+                    <Button
+                        android:id="@+id/btn_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/volume_btn"
+                        android:fontFamily="@font/pingfang"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:padding="0dp"
+                        android:text="6"
+                        android:textColor="#999999"
+                        android:textSize="20sp"
+                        android:layout_marginStart="8dp"
+                        android:backgroundTint="@null"
+                        app:backgroundTint="@null"/>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/volume_rectangle"
+                        android:layout_marginStart="8dp"/>
+
+                    <ImageButton
+                        android:id="@+id/btn_lock"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/vollock_46"
+                        android:layout_marginStart="8dp"
+                        android:contentDescription="LOCK Button" />
+
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- 声道模式 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/sound_mode"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/card_background"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="声道模式"
+                    android:textSize="14sp"
+                    android:textColor="#EEEEEE"
+                    android:fontFamily="@font/pingfang"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </TextView>
+
+                <!-- 单声道 -->
+                <ImageButton
+                    android:id="@+id/single_channel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="41dp"
+                    android:layout_marginBottom="44dp"
+                    android:src="@drawable/single_29"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="单声道"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                </ImageButton>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="44dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="单声道"
+                    android:textSize="14sp"
+                    android:textColor="#EEEEEE"
+                    android:fontFamily="@font/pingfang"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                </TextView>
+
+                <!-- 立体声 -->
+                <ImageButton
+                    android:id="@+id/stero_channel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="41dp"
+                    android:layout_marginBottom="44dp"
+                    android:src="@drawable/stereo_24"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="立体声"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                </ImageButton>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="44dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="立体声"
+                    android:textSize="14sp"
+                    android:textColor="#EEEEEE"
+                    android:fontFamily="@font/pingfang"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+                </TextView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- 自动关机时间 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/auto_shutdown"
+                android:layout_width="match_parent"
+                android:layout_height="112dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/card_background"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="自动关机时间"
+                    android:textSize="14sp"
+                    android:textColor="#EEEEEE"
+                    android:fontFamily="@font/pingfang"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </TextView>
+
+                <View
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginStart="108dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/info_10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <!-- 15min 按键 -->
+                <Button
+                    android:id="@+id/btn_15min"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/shutdown_rectangle"
+                    android:fontFamily="@font/pingfang"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="15min"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:backgroundTint="@null"
+                    app:backgroundTint="@null">
+                </Button>
+
+                <!-- 永不 按键 -->
+                <Button
+                    android:id="@+id/never_shutdown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/shutdown_rectangle2"
+                    android:fontFamily="@font/pingfang"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="永不"
+                    android:textColor="#999999"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:backgroundTint="@null"
+                    app:backgroundTint="@null">
+                </Button>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="32dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

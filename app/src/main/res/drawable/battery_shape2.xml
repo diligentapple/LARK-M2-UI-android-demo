@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Define overall size -->
+    <item>
+        <shape android:shape="rectangle">
+            <size android:width="26dp" android:height="16dp"/>
+            <solid android:color="@android:color/transparent"/>
+        </shape>
+    </item>
+
+    <!-- Battery body -->
+    <item android:gravity="left">
+        <!-- Outer stroke -->
+        <shape android:shape="rectangle">
+            <size android:width="24dp" android:height="16dp"/>
+            <solid android:color="#B3B3B3"/>
+            <corners android:radius="4dp"/>
+        </shape>
+    </item>
+
+    <item android:gravity="left" android:left="1dp" android:top="1dp" android:right="1dp" android:bottom="1dp">
+        <!-- Inner stroke -->
+        <shape android:shape="rectangle">
+            <size android:width="22dp" android:height="14dp"/>
+            <solid android:color="@color/black"/>
+            <corners android:radius="3dp"/>
+        </shape>
+    </item>
+
+    <item android:gravity="left" android:left="2dp" android:top="2dp" android:right="2dp" android:bottom="2dp">
+        <!-- Battery body fill -->
+        <shape android:shape="rectangle">
+            <size android:width="20dp" android:height="12dp"/>
+            <solid android:color="#666666"/>
+            <corners android:radius="2dp"/>
+        </shape>
+    </item>
+
+    <!-- Battery charge level indicator -->
+    <item android:gravity="left" android:left="3dp" android:top="3dp" android:bottom="3dp">
+        <shape android:shape="rectangle">
+            <size android:width="4dp" android:height="10dp"/>
+            <solid android:color="#FA5151"/>
+            <corners
+                android:topLeftRadius="1dp"
+                android:bottomLeftRadius="1dp"
+                android:topRightRadius="0dp"
+                android:bottomRightRadius="0dp"/>
+        </shape>
+    </item>
+
+    <!-- Battery head -->
+    <item android:left="23dp" android:top="6dp" android:bottom="6dp">
+        <shape android:shape="rectangle">
+            <size android:width="3dp" android:height="4dp"/>
+            <solid android:color="#B3B3B3"/>
+
+            <corners android:radius="1dp"/>
+        </shape>
+    </item>
+
+</layer-list>
