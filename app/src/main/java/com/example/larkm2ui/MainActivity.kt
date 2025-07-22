@@ -9,20 +9,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.toColorInt
 
 class MainActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        enableEdgeToEdge()
-        create20AudioBars()
-
-
-    }
 
     private fun create20AudioBars() {
         val audioLevelContainer = findViewById<LinearLayout>(R.id.audio_level)
-
         audioLevelContainer.removeAllViews()
-
         for (i in 1..30) {
             val audioBar = View(this).apply {
                 layoutParams = LinearLayout.LayoutParams(
@@ -48,4 +38,18 @@ class MainActivity : AppCompatActivity() {
     private fun dpToPx(dp:Float): Int {
         return (dp * resources.displayMetrics.density).toInt()
     }
+
+
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        enableEdgeToEdge()
+        create20AudioBars()
+
+
+    }
+
+
 }

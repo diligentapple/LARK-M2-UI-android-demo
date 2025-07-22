@@ -126,20 +126,6 @@
                 android:gravity="center"
                 android:background="@drawable/card_background"
                 android:layout_marginTop="8dp">
-
-                <View
-                    android:layout_width="7dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/audio_bar"
-                    android:backgroundTint="#00E70C"/>
-
-                <View
-                    android:layout_width="7dp"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="3.5dp"
-                    android:background="@drawable/audio_bar"
-                    android:backgroundTint="#00E70C"/>
-
             </LinearLayout>
 
             <!-- 手机外放 -->
