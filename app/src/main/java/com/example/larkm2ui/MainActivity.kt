@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     ColorStateList.valueOf("#FF0000".toColorInt())
                 }
-
             }
             audioLevelContainer.addView(audioBar)
         }
@@ -40,8 +39,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -50,6 +47,5 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
 
 }
