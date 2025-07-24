@@ -142,19 +142,15 @@ class MainActivity : AppCompatActivity() {
             }
             if (button is ImageButton) {
                 button.setOnClickListener {
-                    val currentLockState = getLockState()
-                    val newLockState = !currentLockState
-                    val buttonText = if (newLockState) "锁定音量" else "解锁音量"
+                    val buttonText = if (!getLockState()) "锁定音量" else "解锁音量"
                     Toast.makeText(this, buttonText, Toast.LENGTH_SHORT).show()
-                    button.setTag(R.id.tag, newLockState)
+                    button.setTag(R.id.tag, !getLockState())
                 }
             }
         }
-
     }
     private fun getLockState(): Boolean {
-        val lockButton = findViewById<ImageButton>(R.id.btnLock)
-        return lockButton.getTag(R.id.tag) as? Boolean ?: false
+        return binding.btnLock.getTag(R.id.tag) as? Boolean ?: false
     }
 
     private fun setChannel() {
