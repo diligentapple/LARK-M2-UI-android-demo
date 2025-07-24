@@ -157,6 +157,7 @@
                     android:layout_weight="1"/>
 
                 <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/speaker_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
@@ -191,6 +192,7 @@
                     app:layout_constraintTop_toTopOf="parent"/>
 
                 <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/nc_switch"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:layout_marginTop="12dp"
@@ -204,14 +206,14 @@
 
                 <!-- 强降噪 -->
                 <ImageButton
-                    android:id="@+id/btn_strong"
+                    android:id="@+id/nc_strong"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="41dp"
                     android:layout_marginBottom="44dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="强降噪"
-                    android:src="@drawable/nc_12"
+                    android:src="@drawable/ic_noise_level"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"/>
 
@@ -229,14 +231,14 @@
 
                 <!-- 弱降噪 -->
                 <ImageButton
-                    android:id="@+id/btn_weak"
+                    android:id="@+id/nc_weak"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="41dp"
                     android:layout_marginBottom="44dp"
                     android:background="@android:color/transparent"
                     android:contentDescription="弱降噪"
-                    android:src="@drawable/nc_14"
+                    android:src="@drawable/ic_noise_level"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -280,6 +282,7 @@
 
                 <!-- 音量按键 -->
                 <LinearLayout
+                    android:id="@+id/volumeButtons"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginTop="58dp"
@@ -293,93 +296,38 @@
 
                     <Button
                         android:id="@+id/btn_1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/volume_btn"
-                        android:fontFamily="@font/pingfang"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="0dp"
+                        style="@style/volume_btn_style"
                         android:text="1"
-                        android:textColor="#999999"
-                        android:textSize="20sp"
-                        android:gravity="center"
-                        android:backgroundTint="@null"
                         app:backgroundTint="@null" />
                     <Button
                         android:id="@+id/btn_2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/volume_btn"
-                        android:fontFamily="@font/pingfang"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="0dp"
+                        style="@style/volume_btn_style"
                         android:text="2"
-                        android:textColor="#999999"
-                        android:textSize="20sp"
                         android:layout_marginStart="8dp"
-                        android:backgroundTint="@null"
                         app:backgroundTint="@null"/>
                     <Button
                         android:id="@+id/btn_3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/volume_btn"
-                        android:fontFamily="@font/pingfang"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="0dp"
+                        style="@style/volume_btn_style"
                         android:text="3"
-                        android:textColor="#999999"
-                        android:textSize="20sp"
                         android:layout_marginStart="8dp"
-                        android:backgroundTint="@null"
                         app:backgroundTint="@null"/>
                     <Button
                         android:id="@+id/btn_4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/volume_btn"
-                        android:fontFamily="@font/pingfang"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="0dp"
+                        style="@style/volume_btn_style"
                         android:text="4"
-                        android:textColor="#999999"
-                        android:textSize="20sp"
                         android:layout_marginStart="8dp"
-                        android:backgroundTint="@null"
                         app:backgroundTint="@null"/>
                     <Button
                         android:id="@+id/btn_5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/volume_btn"
-                        android:fontFamily="@font/pingfang"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="0dp"
+                        style="@style/volume_btn_style"
                         android:text="5"
-                        android:textColor="#999999"
-                        android:textSize="20sp"
                         android:layout_marginStart="8dp"
-                        android:backgroundTint="@null"
                         app:backgroundTint="@null"/>
                     <Button
                         android:id="@+id/btn_6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/volume_btn"
-                        android:fontFamily="@font/pingfang"
-                        android:minWidth="0dp"
-                        android:minHeight="0dp"
-                        android:padding="0dp"
+                        style="@style/volume_btn_style"
                         android:text="6"
-                        android:textColor="#999999"
-                        android:textSize="20sp"
                         android:layout_marginStart="8dp"
-                        android:backgroundTint="@null"
                         app:backgroundTint="@null"/>
 
                     <View
@@ -389,7 +337,7 @@
                         android:layout_marginStart="8dp"/>
 
                     <ImageButton
-                        android:id="@+id/btn_lock"
+                        android:id="@+id/btnLock"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/vollock_46"
@@ -431,7 +379,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="41dp"
                     android:layout_marginBottom="44dp"
-                    android:src="@drawable/single_29"
+                    android:src="@drawable/ic_single_channel"
                     android:background="@android:color/transparent"
                     android:contentDescription="单声道"
                     app:layout_constraintStart_toStartOf="parent"
@@ -452,12 +400,12 @@
 
                 <!-- 立体声 -->
                 <ImageButton
-                    android:id="@+id/stero_channel"
+                    android:id="@+id/stereo_channel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="41dp"
                     android:layout_marginBottom="44dp"
-                    android:src="@drawable/stereo_24"
+                    android:src="@drawable/ic_stereo_channel"
                     android:background="@android:color/transparent"
                     android:contentDescription="立体声"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -514,44 +462,26 @@
                 <!-- 15min 按键 -->
                 <Button
                     android:id="@+id/btn_15min"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/shutdown_rectangle"
-                    android:fontFamily="@font/pingfang"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
                     android:text="15min"
-                    android:textColor="#FFFFFF"
-                    android:textSize="16sp"
+                    style="@style/shutdown_btn_style"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:backgroundTint="@null"
                     app:backgroundTint="@null">
                 </Button>
 
                 <!-- 永不 按键 -->
                 <Button
-                    android:id="@+id/never_shutdown"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_never"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/shutdown_rectangle2"
-                    android:fontFamily="@font/pingfang"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
                     android:text="永不"
-                    android:textColor="#999999"
-                    android:textSize="16sp"
+                    style="@style/shutdown_btn_style"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    android:backgroundTint="@null"
                     app:backgroundTint="@null">
                 </Button>
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <View
