@@ -1,17 +1,18 @@
 package com.example.larkm2ui
 
+import android.content.Intent
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.view.View
-import android.content.Intent
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.Toast
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.toColorInt
 import com.example.larkm2ui.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -65,6 +66,8 @@ class MainActivity : AppCompatActivity() {
         return (this * resources.displayMetrics.density).toInt()
     }
 
+
+
     private fun setSpeakerSwitch() {
         binding.speakerSwitch.setOnCheckedChangeListener { _, isChecked ->
             val message = if (isChecked) "手机外放：开启" else "手机外放：关闭"
@@ -76,25 +79,25 @@ class MainActivity : AppCompatActivity() {
         binding.ncSwitch.isChecked = true
         var isStrongEnabled = true
         //启动app时默认强降噪
-        binding.ncStrong.apply { isSelected = true; refreshDrawableState() }
+        binding.ncStrong.isSelected = true
         binding.ncSwitch.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 if (isStrongEnabled) {
-                    binding.ncStrong.apply {isSelected = true; refreshDrawableState()}
+                    binding.ncStrong.isSelected = true
                 } else {
-                    binding.ncWeak.apply {isSelected = true; refreshDrawableState()}
+                    binding.ncWeak.isSelected = true
                 }
             } else {
-                binding.ncStrong.apply {isSelected = false; refreshDrawableState()}
-                binding.ncWeak.apply {isSelected = false; refreshDrawableState()}
+                binding.ncStrong.isSelected = false
+                binding.ncWeak.isSelected = false
             }
         }
 
         binding.ncStrong.setOnClickListener {
             if (binding.ncSwitch.isChecked) {
                 if(!isStrongEnabled) {
-                    binding.ncStrong.apply {isSelected = true; refreshDrawableState()}
-                    binding.ncWeak.apply {isSelected = false; refreshDrawableState()}
+                    binding.ncStrong.isSelected = true
+                    binding.ncWeak.isSelected = false
                     isStrongEnabled = true
                 }
             } else {
@@ -105,8 +108,8 @@ class MainActivity : AppCompatActivity() {
         binding.ncWeak.setOnClickListener {
             if (binding.ncSwitch.isChecked) {
                 if (isStrongEnabled) {
-                    binding.ncStrong.apply {isSelected = false; refreshDrawableState()}
-                    binding.ncWeak.apply {isSelected = true; refreshDrawableState()}
+                    binding.ncStrong.isSelected = false
+                    binding.ncWeak.isSelected = true
                     isStrongEnabled = false
                 }
             } else {
@@ -119,21 +122,21 @@ class MainActivity : AppCompatActivity() {
         var currentSelectedButton: Button? = null
         val Button1 = binding.volumeButtons.getChildAt(0)
         if (Button1 is Button) {
-            Button1.apply {isSelected = true; refreshDrawableState()}
+            Button1.isSelected = true
             currentSelectedButton = Button1
         }
         for (i in 0 until binding.volumeButtons.childCount) {
             val button = binding.volumeButtons.getChildAt(i)
             if (button is Button) {
                 if (button != Button1) {
-                    button.apply {isSelected = false; refreshDrawableState()}
+                    button.isSelected = false
                 }
                 button.setOnClickListener{
                     if (!getLockState()) {
                         currentSelectedButton?.let { prevButton ->
-                            prevButton.apply {isSelected = false; refreshDrawableState()}
+                            prevButton.isSelected = false
                         }
-                        button.apply {isSelected = true; refreshDrawableState()}
+                        button.isSelected = true
                         currentSelectedButton = button
                     } else {
                         Toast.makeText(this, "音量已锁定", Toast.LENGTH_SHORT).show()
@@ -156,18 +159,18 @@ class MainActivity : AppCompatActivity() {
     private fun setChannel() {
         var singleChannelEnabled = true
         //启动app时默认单声道
-        binding.singleChannel.apply { isSelected = true; refreshDrawableState() }
+        binding.singleChannel.isSelected = true
         binding.singleChannel.setOnClickListener {
             if (!singleChannelEnabled) {
-                binding.singleChannel.apply { isSelected = true; refreshDrawableState() }
-                binding.stereoChannel.apply { isSelected = false; refreshDrawableState() }
+                binding.singleChannel.isSelected = true
+                binding.stereoChannel.isSelected = false
                 singleChannelEnabled = true
             }
         }
         binding.stereoChannel.setOnClickListener {
             if (singleChannelEnabled) {
-                binding.stereoChannel.apply { isSelected = true; refreshDrawableState() }
-                binding.singleChannel.apply { isSelected = false; refreshDrawableState() }
+                binding.stereoChannel.isSelected = true
+                binding.singleChannel.isSelected = false
                 singleChannelEnabled = false
             }
         }
@@ -176,18 +179,18 @@ class MainActivity : AppCompatActivity() {
     private fun setAutoShutdown() {
         var fifteenMinEnabled = true
         //启动app时默认15分钟自动关机
-        binding.btn15min.apply { isSelected = true; refreshDrawableState() }
+        binding.btn15min.isSelected = true
         binding.btn15min.setOnClickListener {
             if (!fifteenMinEnabled) {
-                binding.btn15min.apply { isSelected = true; refreshDrawableState() }
-                binding.btnNever.apply { isSelected = false; refreshDrawableState() }
+                binding.btn15min.isSelected = true
+                binding.btnNever.isSelected = false
                 fifteenMinEnabled = true
             }
         }
         binding.btnNever.setOnClickListener {
             if (fifteenMinEnabled) {
-                binding.btnNever.apply { isSelected = true; refreshDrawableState() }
-                binding.btn15min.apply { isSelected = false; refreshDrawableState() }
+                binding.btnNever.isSelected = true
+                binding.btn15min.isSelected = false
                 fifteenMinEnabled = false
             }
         }
