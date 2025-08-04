@@ -38,7 +38,7 @@ class BatteryView @JvmOverloads constructor(
     }
 
     private val batteryWidth = 2f.dpToPx() // Width of the battery view
-    private val batteryHeight = 17f.dpToPx() // Height of the battery view
+    private val batteryHeight = 16.5f.dpToPx() // Height of the battery view
     private val batteryMargin = 2f.dpToPx() // Margin around the battery view
     private val batteryRect = android.graphics.RectF(
         batteryMargin,
@@ -64,7 +64,7 @@ class BatteryView @JvmOverloads constructor(
             0f, 0f,   // bottom-right
             6f, 6f    // bottom-left
         )
-        if (batteryLevel > 90) {
+        if (batteryLevel > 95) {
             radii = floatArrayOf(
                 6f, 6f,   // top-left
                 6f, 6f,   // top-right

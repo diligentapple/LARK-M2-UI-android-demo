@@ -41,12 +41,12 @@ class MainActivity : AppCompatActivity() {
 
     private fun setBatteryView() {
 
-        val batteryPercent1 = 75 // Example battery percentage
+        val batteryPercent1 = 20 // Example battery percentage
         binding.percent1.text = "$batteryPercent1%"
         binding.micBattery1.setBatteryLevel(batteryPercent1)
         binding.micBattery1.setChargingState(false)
 
-        val batteryPercent2 = 20 // Example battery percentage for second mic
+        val batteryPercent2 = 75 // Example battery percentage for second mic
         binding.percent2.text = "$batteryPercent2%"
         binding.micBattery2.setBatteryLevel(batteryPercent2)
         binding.micBattery2.setChargingState(false)
@@ -78,8 +78,6 @@ class MainActivity : AppCompatActivity() {
     private fun Float.dpToPx(): Int {
         return (this * resources.displayMetrics.density).toInt()
     }
-
-
 
     private fun setSpeakerSwitch() {
         binding.speakerSwitch.setOnCheckedChangeListener { _, isChecked ->
