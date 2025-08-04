@@ -39,6 +39,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun setBatteryView() {
+
+        val batteryPercent1 = 75 // Example battery percentage
+        binding.percent1.text = "$batteryPercent1%"
+        binding.micBattery1.setBatteryLevel(batteryPercent1)
+        binding.micBattery1.setChargingState(false)
+
+        val batteryPercent2 = 20 // Example battery percentage for second mic
+        binding.percent2.text = "$batteryPercent2%"
+        binding.micBattery2.setBatteryLevel(batteryPercent2)
+        binding.micBattery2.setChargingState(false)
+    }
+
     private fun setAudioBars() {
         binding.audioLevel.removeAllViews()
         for (i in 1..30) {
@@ -202,6 +215,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         enableEdgeToEdge()
         setToolbar()
+        setBatteryView()
         setAudioBars()
         setSpeakerSwitch()
         setNoiseCancel()

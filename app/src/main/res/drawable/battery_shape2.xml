@@ -37,18 +37,18 @@
         </shape>
     </item>
 
-    <!-- Battery charge level indicator -->
-    <item android:gravity="left" android:left="3dp" android:top="3dp" android:bottom="3dp">
-        <shape android:shape="rectangle">
-            <size android:width="4dp" android:height="10dp"/>
-            <solid android:color="#FA5151"/>
-            <corners
-                android:topLeftRadius="1dp"
-                android:bottomLeftRadius="1dp"
-                android:topRightRadius="0dp"
-                android:bottomRightRadius="0dp"/>
-        </shape>
-    </item>
+<!--    &lt;!&ndash; Battery charge level indicator &ndash;&gt;-->
+<!--    <item android:gravity="left" android:left="3dp" android:top="3dp" android:bottom="3dp">-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <size android:width="4dp" android:height="10dp"/>-->
+<!--            <solid android:color="#FA5151"/>-->
+<!--            <corners-->
+<!--                android:topLeftRadius="1dp"-->
+<!--                android:bottomLeftRadius="1dp"-->
+<!--                android:topRightRadius="0dp"-->
+<!--                android:bottomRightRadius="0dp"/>-->
+<!--        </shape>-->
+<!--    </item>-->
 
     <!-- Battery head -->
     <item android:left="23dp" android:top="6dp" android:bottom="6dp">

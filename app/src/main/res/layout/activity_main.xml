@@ -69,10 +69,10 @@
                     android:textColor="#EEEEEE"
                     android:textSize="12sp" />
 
-                <View
-                    android:id="@+id/mic_icon1"
+                <com.example.larkm2ui.BatteryView
+                    android:id="@+id/mic_battery1"
                     android:layout_width="26dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="12.5dp"
                     android:background="@drawable/battery_shape2" />
 
@@ -86,6 +86,7 @@
                     android:textColor="#EEEEEE"
                     android:textSize="12sp"/>
 
+
                 <!-- Mic 2 -->
                 <TextView
                     android:id="@+id/mic2"
@@ -97,12 +98,12 @@
                     android:textColor="#EEEEEE"
                     android:textSize="12sp"/>
 
-                <View
-                    android:id="@+id/mic_icon2"
+                <com.example.larkm2ui.BatteryView
+                    android:id="@+id/mic_battery2"
                     android:layout_width="26dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="12.5dp"
-                    android:background="@drawable/battery_shape" />
+                    android:background="@drawable/battery_shape2" />
 
                 <TextView
                     android:id="@+id/percent2"
