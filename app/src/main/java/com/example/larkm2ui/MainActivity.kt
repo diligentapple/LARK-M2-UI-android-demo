@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         binding.micBattery1.setBatteryLevel(batteryPercent1)
         binding.micBattery1.setChargingState(false)
 
-        val batteryPercent2 = 75 // Example battery percentage for second mic
+        val batteryPercent2 =75 // Example battery percentage for second mic
         binding.percent2.text = "$batteryPercent2%"
         binding.micBattery2.setBatteryLevel(batteryPercent2)
         binding.micBattery2.setChargingState(false)

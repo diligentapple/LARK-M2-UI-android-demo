@@ -31,5 +31,10 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="CommonBatterViewStyle">
+        <item name="lowLevelColor">#FF0000</item>
+        <item name="normalLevelColor">#EEEEEE</item>
+        <item name="chargingColor">#00FF00</item>
+    </style>
 
 </resources>

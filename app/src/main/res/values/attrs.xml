@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="BatteryView">
+        <attr name="lowLevelColor" format="color"/>
+        <attr name="normalLevelColor" format="color"/>
+        <attr name="chargingColor" format="color"/>
+    </declare-styleable>
+</resources>

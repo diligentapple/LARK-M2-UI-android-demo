@@ -7,6 +7,9 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
 import android.view.View
+import androidx.core.content.withStyledAttributes
+import kotlin.text.toInt
+
 
 class BatteryView @JvmOverloads constructor(
     context: Context,
@@ -17,37 +20,61 @@ class BatteryView @JvmOverloads constructor(
     private var batteryLevel = 75
     private var isCharging = true
 
-    private val batteryFullPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        style = Paint.Style.FILL
-        color = Color.WHITE
-    }
-    private val batteryLowPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        style = Paint.Style.FILL
-        color = Color.RED
-    }
-    private val batteryChargingPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        style = Paint.Style.FILL
-        color = Color.GREEN
-    }
-    private val batteryPaint: Paint
-        get() = if (isCharging) batteryChargingPaint else if (batteryLevel <= 20) batteryLowPaint else batteryFullPaint
+    private val batteryPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply { style = Paint.Style.FILL }
+    private var lowLevelColor = Color.RED
+    private var normalLevelColor = Color.WHITE
+    private var chargingColor = Color.GREEN
+
+    private val batteryWidth = 20f.dpToPx() // Width of the battery view
+    private val batteryHeight = 16f.dpToPx() // Height of the battery view
+    private val batteryMargin = 2f.dpToPx() // Margin around the battery view
+    private val batteryRect: android.graphics.RectF = android.graphics.RectF()
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
-        batteryRect.set(batteryMargin, batteryMargin, w - 2*batteryMargin, h - batteryMargin)
+        batteryRect.set(
+            batteryMargin + paddingLeft,
+            batteryMargin + paddingTop,
+            batteryMargin + paddingLeft + batteryWidth,
+            batteryMargin + paddingTop + batteryHeight)
     }
 
-    private val batteryWidth = 2f.dpToPx() // Width of the battery view
-    private val batteryHeight = 16.5f.dpToPx() // Height of the battery view
-    private val batteryMargin = 2f.dpToPx() // Margin around the battery view
-    private val batteryRect = android.graphics.RectF(
-        batteryMargin,
-        batteryMargin,
-        batteryWidth - batteryMargin,
-        batteryHeight - batteryMargin
-    )
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val desiredWidth  = (batteryWidth + paddingLeft + paddingRight).toInt()
+        val desiredHeight = (batteryHeight + paddingTop + paddingBottom).toInt()
+        val measuredW = resolveSize(desiredWidth, widthMeasureSpec)
+        val measuredH = resolveSize(desiredHeight, heightMeasureSpec)
+
+        setMeasuredDimension(measuredW, measuredH)
+    }
+
+    init {
+        initAttributes(context, attrs)
+        initView()
+    }
+
+    private fun initAttributes(context: Context, attrs: AttributeSet?) {
+        // Initialize any custom attributes if needed
+        attrs?.let {
+            context.withStyledAttributes(it, R.styleable.BatteryView) {
+                lowLevelColor = getColor(R.styleable.BatteryView_lowLevelColor, Color.RED)
+                normalLevelColor= getColor(R.styleable.BatteryView_normalLevelColor, Color.WHITE)
+                chargingColor = getColor(R.styleable.BatteryView_chargingColor, Color.GREEN)
+            }
+        }
+    }
+
+    private fun initView() {
+        setBackgroundResource(R.drawable.battery_shape2)
+    }
 
     private fun drawBattery(canvas: Canvas) {
+        batteryPaint.color = when {
+            isCharging         -> chargingColor
+            batteryLevel <= 20 -> lowLevelColor
+            else               -> normalLevelColor
+        }
+
         // Calculate the width of the battery level based on the current level
         val levelWidth = (batteryRect.width()) * (batteryLevel / 100f)
         val levelRect = android.graphics.RectF(
@@ -56,7 +83,6 @@ class BatteryView @JvmOverloads constructor(
             batteryMargin + levelWidth,
             batteryHeight - batteryMargin
         )
-        // Radii: top-left, top-right, bottom-right, bottom-left (pairs of X, Y)
 
         var radii = floatArrayOf(
             6f, 6f,   // top-left
@@ -77,13 +103,7 @@ class BatteryView @JvmOverloads constructor(
             addRoundRect(levelRect, radii, Path.Direction.CW)
         }
 
-        // Draw the battery level
         canvas.drawPath(path, batteryPaint)
-    }
-
-
-    init {
-        // Initialize any attributes or properties here if needed
     }
 
     override fun onDraw(canvas: Canvas) {
@@ -100,6 +120,5 @@ class BatteryView @JvmOverloads constructor(
         isCharging = charging
         invalidate() // Redraw the view with the new charging state
     }
-
 
 }

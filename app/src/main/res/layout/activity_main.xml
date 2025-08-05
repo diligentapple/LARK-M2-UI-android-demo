@@ -72,9 +72,9 @@
                 <com.example.larkm2ui.BatteryView
                     android:id="@+id/mic_battery1"
                     android:layout_width="26dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="16dp"
                     android:layout_marginStart="12.5dp"
-                    android:background="@drawable/battery_shape2" />
+                    style="@style/CommonBatterViewStyle" />
 
                 <TextView
                     android:id="@+id/percent1"
@@ -101,7 +101,7 @@
                 <com.example.larkm2ui.BatteryView
                     android:id="@+id/mic_battery2"
                     android:layout_width="26dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="16dp"
                     android:layout_marginStart="12.5dp"
                     android:background="@drawable/battery_shape2" />
 
